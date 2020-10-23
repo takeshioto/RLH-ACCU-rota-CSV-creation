@@ -9,4 +9,4 @@ HOWTO
 5. Place the script and YOUR newly created .csv file into the same working directory
 6. Make sure to delete the existing rotadata.csv file if you've downloaded it from GitHub as this is my rota, not yours
 6. Run the script
-7. Import the gCalendarImportFile into your Google Calendar. I recommend creating a new Google Calendar to import the file to
+7. Import the created gCalendarImportFile.csv into your Google Calendar. I recommend creating a new Google Calendar to import the file to
