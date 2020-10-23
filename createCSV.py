@@ -32,11 +32,11 @@ with open('rotadata.csv') as csvfile:
     # a string in format YYYY-MM-DD which is a day later than the input date
     # requires use of datetime for the adding of the singular day
     def addDay (inputDate):
-        print(inputDate[6:10])
-        print(inputDate[3:5])
-        print(inputDate[0:2])
+        # Creates a datetime object from the string
         outputDate = datetime.datetime(int(inputDate[0:4]), int(inputDate[5:7]), int(inputDate[8:10]))
+        # Adds a day to the date
         outputDate += timedelta(days=1)
+        # Converts back into a string
         output = outputDate.strftime('%Y' + '-' + '%m' + '-' + '%d')
         print(output)
         return output
