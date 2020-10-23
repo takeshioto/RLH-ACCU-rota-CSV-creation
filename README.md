@@ -8,4 +8,4 @@ HOWTO
 4. Install Python
 5. Place the script and the .csv file into the same working directory
 6. Run the script
-7. Import the gCalendarImportFile into your Google Calendar
+7. Import the gCalendarImportFile into your Google Calendar. I recommend creating a new Google Calendar to import the file to.
