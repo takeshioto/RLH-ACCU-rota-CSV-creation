@@ -11,5 +11,4 @@ HOWTO
 6. Run the script
 7. Import the created gCalendarImportFile.csv into your Google Calendar. I recommend creating a new Google Calendar to import the file to
 
-IMPORTANT
-The second column in the .csv needs to be in the format of a single letter of S/C/L/N
+IMPORTANT: The second column in the .csv needs to be in the format of a single letter of S/C/L/N
