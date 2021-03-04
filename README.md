@@ -15,4 +15,4 @@ IMPORTANT: The second column in the .csv needs to be in the format of S/C/L/N/SL
 Note it doesn't add AL as anything
 Feel free to edit the script to your liking
 
-If theres a problem with the dates it's probably Excel displaying the format in a UK local format DD-MM-YYY while the underlying data is in the universal YYY-MM-DD
+If theres a problem with the dates it's probably Excel displaying the format in a UK local format DD-MM-YYY while the underlying data is in the universal YYYY-MM-DD
