@@ -28,15 +28,13 @@ with open('rotadata.csv') as csvfile:
             writer = csv.writer(file)
             writer.writerow([subject, startDate, startTime, endDate, endTime, description])
 
-    # A funciton that takes a string inputDate in the format YYYY-MM-DD and returns
+    # A function that takes a string inputDate in the format YYYY-MM-DD and returns
     # a string in format YYYY-MM-DD which is a day later than the input date
     # requires use of datetime for the adding of the singular day
+    # this is needed for night shifts that end a day later than the start date
     def addDay (inputDate):
-        # Creates a datetime object from the string
         outputDate = datetime.datetime(int(inputDate[0:4]), int(inputDate[5:7]), int(inputDate[8:10]))
-        # Adds a day to the date
         outputDate += timedelta(days=1)
-        # Converts back into a string
         output = outputDate.strftime('%Y' + '-' + '%m' + '-' + '%d')
         print(output)
         return output
@@ -45,19 +43,8 @@ with open('rotadata.csv') as csvfile:
     for row in readCSV:
 
         # Create a Date object
-        # nb/ the date has to be in the format 2020-12-01 from the CSV file
+        # nb/ the date has to be in the format 2020-12-01 in the CSV file!
         date = row[0]
-
-        # Quirk of a mistake in the covid rota, doesnt change to 2021 when the new year starts
-        # if month is jan or feb, changes year from 2020 to 2021
-        if (date[5] == '0' and date[6] == '1') or (date[5] == '0' and date[6] == '2'):
-            # In python strings are immutable. converting string to a list of individual characters
-            listString = list(date)
-            # Changing the year to 2021
-            listString[3] = '1'
-            # Rejoining the list as a string to be used for the addShift function
-            date = "".join(listString)
-
         print(date)
 
         shiftType = row[1]
@@ -95,5 +82,14 @@ with open('rotadata.csv') as csvfile:
             print(startTime)
             endTime = nEnd
             print(endTime)
+            # using the addDay() function to add a day - night shifts end a day later
             endDate = addDay(date)
+            addShift(shiftType, date, startTime, endDate, endTime, shiftDescription)
+        if shiftType == 'SL':
+            shiftType += ' Shift'
+            startTime = sStart
+            print(startTime)
+            endTime = sEnd
+            print(endTime)
+            endDate = date
             addShift(shiftType, date, startTime, endDate, endTime, shiftDescription)
